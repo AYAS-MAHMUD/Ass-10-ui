@@ -1,15 +1,16 @@
 import { Star } from 'lucide-react'
 import React from 'react'
+import { motion } from 'framer-motion';
 
 const LatestCard = ({i}) => {
     console.log(i)
   return (
-    <div>
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+    <motion.div initial={{ opacity: 0 ,y:20,scale:0.9}} whileInView={{opacity:1, y:0,scale:1}} transition={{ duration: 1 }}>
+        <div  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform ">
       {/* Image */}
-      <div className="relative h-48 overflow-hidden bg-gray-200">
+      <div className="relative h-78 overflow-hidden bg-gray-200">
         <img
-          src={i.image}
+          src={i.thumbnail}
           alt={i.title}
           className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
         />
@@ -49,7 +50,6 @@ const LatestCard = ({i}) => {
           </span>
         </div>
 
-        {/* Price & Provider */}
         <div className="flex items-center justify-between mb-4">
           <div>
             <p className="text-2xl font-bold text-blue-600">${i.price}</p>
@@ -62,16 +62,14 @@ const LatestCard = ({i}) => {
           )}
         </div>
 
-        {/* CTA Button */}
         <button
-        //   onClick={onViewDetails}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition-colors duration-200"
         >
           View Details
         </button>
       </div>
 </div>
-    </div>
+    </motion.div>
   )
 }
 

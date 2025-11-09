@@ -1,5 +1,6 @@
 import { Star } from 'lucide-react';
 import React from 'react'
+import { motion } from 'framer-motion';
 
 const Testimonial = () => {
     const testimonials = [
@@ -29,17 +30,17 @@ const Testimonial = () => {
   }
 ];
   return (
-    <div className='px-5 sm:px-10 md:px-40 mx-auto my-20'>
+    <motion.div initial={{ opacity: 0 ,y:-40}} whileInView={{opacity:1, y:0}} transition={{ duration: 1 }} className='px-5 sm:px-10 md:px-40 mx-auto my-20'>
 
       {/* Customer Testimonials */}
       <section className="py-10 md:py-0">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <motion.h2 initial={{ opacity: 0 ,x:40}} whileInView={{opacity:1, x:0}} transition={{ duration: 1 }} className="text-3xl md:text-4xl font-bold mb-4">
               What Our Customers Say
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p initial={{ opacity: 0 ,x:-40}} whileInView={{opacity:1, x:0}} transition={{ duration: 1 }} className="text-lg text-gray-600 max-w-2xl mx-auto">
               Read reviews from thousands of satisfied customers
-            </p>
+            </motion.p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -78,7 +79,7 @@ const Testimonial = () => {
           </div>
 
       </section>
-    </div>
+    </motion.div>
   )
 }
 
