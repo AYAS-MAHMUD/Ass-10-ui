@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import { motion } from 'framer-motion';
 const Latest = ({latestData}) => {
     const data = use(latestData)
-    console.log(data)
+    // console.log(data)
   return (
     <div className='px-30 mx-auto'>
         <div className="text-center mb-12">

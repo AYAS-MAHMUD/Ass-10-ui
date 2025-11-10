@@ -39,7 +39,7 @@ const WhyChoiceUs = () => {
     icon: '⏱️'
   }
 ];
-console.log(whyChoose)
+// console.log(whyChoose)
   return (
     <motion.div initial={{ opacity: 0 ,x:40}} whileInView={{opacity:1, x:0}} transition={{ duration: 1 }} className='px-5 sm:px-10 md:px-40  mx-auto my-20 bg-gray-100'>
               {/* Why Choose Us */}

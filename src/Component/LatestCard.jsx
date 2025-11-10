@@ -1,9 +1,11 @@
 import { Star } from 'lucide-react'
 import React from 'react'
 import { motion } from 'framer-motion';
+import { Link } from 'react-router';
 
 const LatestCard = ({i}) => {
-    console.log(i)
+    console.log(i._id)
+
   return (
     <motion.div initial={{ opacity: 0 ,y:20,scale:0.9}} whileInView={{opacity:1, y:0,scale:1}} transition={{ duration: 1 }}>
         <div  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform ">
@@ -62,11 +64,12 @@ const LatestCard = ({i}) => {
           )}
         </div>
 
-        <button
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition-colors duration-200"
+        <Link
+        to={`/servicesDetails/${i._id}`}
+          className="w-full btn bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition-colors duration-200"
         >
           View Details
-        </button>
+        </Link>
       </div>
 </div>
     </motion.div>

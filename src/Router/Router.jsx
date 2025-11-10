@@ -10,6 +10,7 @@ import MyBooking from "../Pages/MyBooking";
 import Profile from "../Pages/Profile";
 import PrivetRoute from "../Provider/PrivetRoute";
 import Loading from "../Component/Loading";
+import ServicesDetails from "../Component/ServicesDetails";
 
 
 
@@ -20,13 +21,15 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home />,
-                hydrateFallbackElement :<Loading/>
+                hydrateFallbackElement :<Loading/>,
+                element: <Home />
+                
             },
             {
                 path: 'login',
-                element: <Login />,
-                hydrateFallbackElement :<Loading/>
+                hydrateFallbackElement :<Loading/>,
+                element: <Login />
+                
             },
             {
                 path: '/register',
@@ -34,37 +37,48 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'services',
-                element: <Services/>,
-                hydrateFallbackElement :<Loading/>
+                hydrateFallbackElement :<Loading/>,
+                element: <Services/>
+                
             },
             {
                 path: 'myservices',
+                hydrateFallbackElement :<Loading/>,
                 element: <PrivetRoute>
                     <MyServices/>
-                </PrivetRoute>,
-                hydrateFallbackElement :<Loading/>
+                </PrivetRoute>
+                
             },
             {
                 path: 'addservices',
+                hydrateFallbackElement :<Loading/>,
                 element: <PrivetRoute>
                     <AddServices/>
-                </PrivetRoute>,
-                hydrateFallbackElement :<Loading/>
+                </PrivetRoute>
+                
             },
             {
                 path: 'mybooking',
+                hydrateFallbackElement :<Loading/>,
                 element: <PrivetRoute>
                     <MyBooking/>
-                </PrivetRoute>,
-                hydrateFallbackElement :<Loading/>
+                </PrivetRoute>
+                
             },
             {
                 path: 'profile',
+                hydrateFallbackElement :<Loading/>,
                 element: <PrivetRoute>
                     <Profile/>
-                </PrivetRoute>,
-                hydrateFallbackElement :<Loading/>
-            }
+                </PrivetRoute>
+                
+            },
+            {
+                path : 'servicesDetails/:id',
+                hydrateFallbackElement : <Loading></Loading>,
+                Component : ServicesDetails,
+                loader : ({params})=>fetch(`http://localhost:3000/services/${params.id}`)
+            },
  
         ],
     },
