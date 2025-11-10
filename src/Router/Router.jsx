@@ -76,7 +76,9 @@ export const router = createBrowserRouter([
             {
                 path : 'servicesDetails/:id',
                 hydrateFallbackElement : <Loading></Loading>,
-                Component : ServicesDetails,
+                element : <PrivetRoute>
+                    <ServicesDetails></ServicesDetails>
+                </PrivetRoute>,
                 loader : ({params})=>fetch(`http://localhost:3000/services/${params.id}`)
             },
  

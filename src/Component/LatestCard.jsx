@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 
 const LatestCard = ({i}) => {
-    console.log(i._id)
+    // console.log(i._id)
 
   return (
     <motion.div initial={{ opacity: 0 ,y:20,scale:0.9}} whileInView={{opacity:1, y:0,scale:1}} transition={{ duration: 1 }}>
