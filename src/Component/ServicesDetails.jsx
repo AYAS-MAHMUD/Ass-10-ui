@@ -198,7 +198,7 @@ const ServicesDetails = () => {
                         <input
                           type="number"
                           name="price"
-                          placeholder="e.g Artisan Roasters"
+                          placeholder="Enter your offered price"
                           className="input mt-2 w-full"
                         />
                       </div>
