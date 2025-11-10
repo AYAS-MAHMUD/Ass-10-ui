@@ -1,13 +1,55 @@
 import { Star } from 'lucide-react';
-import React from 'react'
+import React, { use, useRef } from 'react'
 import { useLoaderData, useNavigate } from 'react-router'
+import { AuthContext } from '../Provider/AuthProvider';
 
 const ServicesDetails = () => {
     const navigate = useNavigate();
     const data = useLoaderData()
+    const bidModalref = useRef();
+    const {user} =use(AuthContext)
     // console.log(data.provider.name)
     const {title,category, shortDescription,createdAt, price,provider:{city},provider:{email}, provider: {name} ,provider:{badge} ,priceUnit,rating,reviewsCount,verified,thumbnail,} = data;
-  return (
+    
+    const handleBidSubmit=(e)=>{
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const date = form.date.value;
+        const price = form.price.value;
+        const serviceId = form.id.value;
+
+        const bookingData = {
+            serviceId,
+            serviceTitle : title,
+            customerName : name,
+            customerEmail : email,
+            bookingDate : date,
+            offeredPrice : price,
+        }
+
+        console.log(bookingData)
+
+        fetch('http://localhost:3000/bookings',{
+            method : 'POST',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(bookingData)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.insertedId){
+                alert('Booking Successful')
+                form.reset();
+                bidModalref.current.close();
+            }
+        })
+    }
+    
+    return (
     <div className='my-20'>
         <button
         onClick={() => navigate(-1)}
@@ -102,9 +144,88 @@ const ServicesDetails = () => {
 
           {/* Action Button */}
           <div>
-            <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition">
+            <button onClick={() => bidModalref.current.showModal()} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition">
               Book This Service
             </button>
+
+            {/* MODAL OPEN */}
+            <dialog
+                  ref={bidModalref}
+                  id="my_modal_5"
+                  className="modal modal-bottom sm:modal-middle"
+                >
+                  <div className="modal-box">
+                    <h3 className="font-bold text-lg text-center border-b-1 border-gray-200 pb-3">
+                      Book This Service!
+                    </h3>
+                    
+                    <form onSubmit={handleBidSubmit}>
+                      <div className="flex gap-7 mt-6">
+                        <div>
+                          <label htmlFor="">Name</label>
+                          <input
+                            type="text"
+                            defaultValue={user?.displayName}
+                            readOnly
+                            name="name"
+                            placeholder="Your Name"
+                            className="input mt-2"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="">Email</label>
+                          <input
+                            type="email"
+                            defaultValue={user?.email}
+                            readOnly
+                            name="email"
+                            placeholder="Your Email"
+                            className="input mt-2"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex flex-col mt-2">
+                        <label htmlFor="">Booking Date</label>
+                        <input
+                        name='date'
+                          type="date"
+                          placeholder="Select booking date"
+                          className="input mt-2 w-full"
+                        />
+                      </div>
+                      <div className="flex flex-col mt-2">
+                        <label htmlFor="">Your Price</label>
+                        <input
+                          type="number"
+                          name="price"
+                          placeholder="e.g Artisan Roasters"
+                          className="input mt-2 w-full"
+                        />
+                      </div>
+                      <div className="flex flex-col mt-2">
+                        <label htmlFor="">Service ID</label>
+                        <input
+                        name='id'
+                          type="text"
+                          placeholder=""
+                          readOnly
+                            value={data._id}
+                          className="input mt-2 w-full"
+                        />
+                      </div>
+                      <button className="btn btn-primary w-full mt-4">
+                        Submit Booking
+                      </button>
+                    </form>
+
+                    <div className="modal-action ">
+                      <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn mr-4">Cencel</button>
+                      </form>
+                    </div>
+                  </div>
+                </dialog>
           </div>
         </div>
       </div>
