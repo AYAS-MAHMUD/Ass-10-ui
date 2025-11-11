@@ -30,7 +30,7 @@ const LatestCard = ({i}) => {
 
         {/* Description */}
         <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-          {i.description}
+          {i.shortDescription}
         </p>
 
         {/* Rating */}
@@ -57,7 +57,7 @@ const LatestCard = ({i}) => {
             <p className="text-2xl font-bold text-blue-600">${i.price}</p>
             <p className="text-xs text-gray-500">Per service</p>
           </div>
-          {i.provider.verified && (
+          {i.provider?.verified && (
             <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-semibold">
               ✓ Verified
             </span>
