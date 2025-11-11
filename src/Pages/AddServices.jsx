@@ -1,10 +1,11 @@
 import React, { use, useState } from "react";
 import axios from '../../node_modules/axios/lib/axios';
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const AddServices = () => {
   const {user} =use(AuthContext)
-  console.log(user)
+  // console.log(user)
   const [formData, setFormData] = useState({
     title: "",
     category: "",
@@ -22,7 +23,7 @@ const AddServices = () => {
       city : "",
 
     },
-    createdAt : ""
+    createdAt : "",
 
   });
 
@@ -37,6 +38,7 @@ const AddServices = () => {
     // You can send the data to your backend here using fetch or axios
     axios.post('http://localhost:3000/services',formData)
     .then(data=>{
+      toast.success("Your Service Submitted")
       console.log("Axios data ",data.data)
     })
   };

@@ -11,6 +11,7 @@ import Profile from "../Pages/Profile";
 import PrivetRoute from "../Provider/PrivetRoute";
 import Loading from "../Component/Loading";
 import ServicesDetails from "../Component/ServicesDetails";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
                 </PrivetRoute>,
                 loader : ({params})=>fetch(`http://localhost:3000/services/${params.id}`)
             },
+            {
+                path : '*',
+                element : <ErrorPage></ErrorPage>
+            }
  
         ],
     },

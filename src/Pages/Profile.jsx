@@ -1,19 +1,20 @@
 import React, { use, useRef } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Profile = () => {
   const {user,updateprofile} = use(AuthContext)
-  const bidModalref = useRef();
+  const Modalref = useRef();
   const handleUpdateprofile=(e)=>{
     e.preventDefault()
     const name = e.target.name.value;
     const url = e.target.url.value;
     updateprofile(name,url)
     .then(()=>{
-      alert("Update Profile")
+      toast.success("Updated Profile Successfully!")
     })
     .catch(error=>{
-      console.log(error)
+      toast.error("You got an Error",error)
     })
 
   }
@@ -67,7 +68,7 @@ const Profile = () => {
           </button>
 
             <dialog
-                  ref={bidModalref}
+                  ref={Modalref}
                   id="my_modal_5"
                   className="modal modal-bottom sm:modal-middle"
                 >

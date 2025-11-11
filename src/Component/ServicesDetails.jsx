@@ -2,6 +2,7 @@ import { Star } from 'lucide-react';
 import React, { use, useRef } from 'react'
 import { useLoaderData, useNavigate } from 'react-router'
 import { AuthContext } from '../Provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const ServicesDetails = () => {
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ const ServicesDetails = () => {
     // console.log(data.provider.name)
     const {title,category, shortDescription,createdAt, price,provider:{city},provider:{email}, provider: {name} ,provider:{badge} ,priceUnit,rating,reviewsCount,verified,thumbnail,} = data;
     
-    const handleBidSubmit=(e)=>{
+    const handleBookingSubmit=(e)=>{
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -29,7 +30,7 @@ const ServicesDetails = () => {
             offeredPrice : price,
         }
 
-        console.log(bookingData)
+        // console.log(bookingData)
 
         fetch('http://localhost:3000/bookings',{
             method : 'POST',
@@ -42,7 +43,7 @@ const ServicesDetails = () => {
         .then(data=>{
             console.log(data)
             if(data.insertedId){
-                alert('Booking Successful')
+                toast.success('Booking Successfully!')
                 form.reset();
                 bidModalref.current.close();
             }
@@ -159,7 +160,7 @@ const ServicesDetails = () => {
                       Book This Service!
                     </h3>
                     
-                    <form onSubmit={handleBidSubmit}>
+                    <form onSubmit={handleBookingSubmit}>
                       <div className="flex gap-7 mt-6">
                         <div>
                           <label htmlFor="">Name</label>

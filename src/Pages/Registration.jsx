@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 
@@ -51,12 +52,12 @@ export default function Register({ onSubmit }) {
         navigate("/");
         updatedUser({ displayName: name, photoURL: photo })
           .then(() => {
-            alert("Registration Successfully")
+            toast.success("Registration Successfully")
             setUser({ ...user, displayName: name, photoURL: photo });
             navigate("/");
           })
-          .catch((error) => {
-            console.log(error);
+          .catch(() => {
+            toast.error("Registration Faild");
             setUser(user);
           });
       })
@@ -86,30 +87,14 @@ export default function Register({ onSubmit }) {
     signInGoogle()
     .then((result)=>{
         console.log(result)
-      alert("Registration Successfully")
+      toast.success("Registration Successfully")
       setUser(result.user)
       navigate("/")
-    //   const newUser = {
-    //     name : result.user.displayName,
-    //     email : result.user.email,
-    //     image : result.user.photoURL
-    //   }
-      // create user in database
-    //   fetch('http://localhost:3000/users',{
-    //     method : 'POST',
-    //     headers:{
-    //       'content-type' : 'application/json'
-    //     },
-    //     body : JSON.stringify(newUser)
-    //   })
-    //   .then(res=>res.json())
-    //   .then(data=>{
-    //     console.log('data after user save',data)
-    //   })
+
     })
     .catch(error=>{
       console.log(error.user)
-      alert("Registration failed")
+      toast.error("Registration failed")
     })
   }
   return (

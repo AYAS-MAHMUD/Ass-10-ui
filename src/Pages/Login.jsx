@@ -3,7 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
-
+import toast from "react-hot-toast";
 
 export default function Login({ onSubmit }) {
   // console.log(location)
@@ -49,13 +49,13 @@ export default function Login({ onSubmit }) {
     signInUser(email,password)
     .then(() => {
         // console.log(result.user);
-        alert("Login Successfully",{position :"top-center",autoClose: 800})
+        toast.success("Login Successfully")
         ev.target.reset();
         Navigate("/");
       })
       .catch((error) => {
         console.log(error);
-        alert("user not found")
+        toast.error("user not found")
       });
 
 
@@ -79,7 +79,7 @@ const e = validate();
     e.preventDefault();
     signInGoogle()
     .then((result)=>{
-      alert("Registration Successfully")
+      toast.success("Registration Successfully")
       setUser(result.user)
         Navigate("/")
       
@@ -158,8 +158,8 @@ const e = validate();
           </button>
                     <p className="text-center font-semibold text-md py-2">or</p>
           <div className="flex items-center justify-center">
-            <button onClick={hangleGoogleLogin} className="w-full flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-700 px-5 py-2  shadow-sm hover:bg-gray-100 hover:shadow-md transition-all duration-300">
-              
+            <button  onClick={hangleGoogleLogin} className="w-full flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-700 px-5 py-2  shadow-sm hover:bg-gray-100 hover:shadow-md transition-all duration-300">
+
             <img
               src="https://www.svgrepo.com/show/355037/google.svg"
               alt="Google"
