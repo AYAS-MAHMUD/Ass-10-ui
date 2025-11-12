@@ -1,6 +1,7 @@
 import React, { use, useRef } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { motion } from 'framer-motion';
 
 const Profile = () => {
   const {user,updateprofile} = use(AuthContext)
@@ -20,7 +21,9 @@ const Profile = () => {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen py-20">
+    <motion.div initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }} className="flex flex-col items-center min-h-screen py-20 mx-auto">
       <h1 className="text-3xl font-bold  mb-2">My Profile</h1>
       <p className=" mb-8">
         Manage your profile information and settings
@@ -33,7 +36,7 @@ const Profile = () => {
             <img
               src={user.photoURL}
               alt={user.displayName}
-              className="w-50 h-50 rounded-full border-4 border-white object-cover"
+              className="w-50 h-50 rounded-full border-18 border-white object-cover"
             />
           ) : (
             <div className="w-34 h-34 rounded-full border-4 border-white bg-gray-200 flex items-center justify-center text-gray-500 text-3xl font-semibold">
@@ -63,7 +66,7 @@ const Profile = () => {
             </p>
           </div>
 
-          <button onClick={() => bidModalref.current.showModal()} className="mt-6 w-full bg-black text-white py-2 rounded-xl hover:bg-gray-800 transition">
+          <button onClick={() => Modalref.current.showModal()} className="mt-6 w-full bg-black text-white py-2 rounded-xl hover:bg-gray-800 transition">
             Edit Profile
           </button>
 
@@ -118,7 +121,7 @@ const Profile = () => {
                 </dialog>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

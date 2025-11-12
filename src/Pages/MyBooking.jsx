@@ -53,7 +53,7 @@ const MyBooking = () => {
       transition={{ duration: 1 }}
       className="md:w-10/12 mx-auto my-15"
     >
-      <h2 className="text-3xl border-b-4 border-blue-600 pb-4 font-bold mb-6 text-center ">
+      <h2 className="text-3xl border-b-4  border-blue-600 pb-4 font-bold mb-6 text-center ">
         My Bookings : <span className="text-blue-600">{bookings.length}</span>
       </h2>
       <div>
@@ -85,7 +85,7 @@ const MyBooking = () => {
                 <th>
                   <button
                     onClick={() => handleRemove(i._id)}
-                    className="btn bg-blue-600 text-white"
+                    className="btn btn-error btn-outline text-white"
                   >
                     Delete
                   </button>
