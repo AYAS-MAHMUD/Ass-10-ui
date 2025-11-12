@@ -6,7 +6,7 @@ export default function HeroSlider() {
   const heroSlides = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1506765515384-028b60a970df",
+      image: "https://i.ibb.co.com/3m3Nf3YQ/premium-photo-1664298121254-3f755ec249cd.jpg",
       title: "Find Trusted Local Services",
       description:
         "Discover and book professionals in your area for home repair, cleaning, and more.",

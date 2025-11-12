@@ -11,7 +11,7 @@ const ServicesDetails = () => {
     const {user} =use(AuthContext)
     // console.log(data.provider.name)
     const {title,category, shortDescription,createdAt, price,provider:{city},provider:{email:providerEmail}, provider: {name} ,provider:{badge} ,priceUnit,rating,reviewsCount,verified,thumbnail,} = data;
-    
+    // console.log(reviewsCount)
     const handleBookingSubmit=(e)=>{
         e.preventDefault();
         const form = e.target;

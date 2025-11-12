@@ -48,7 +48,7 @@ const LatestCard = ({i}) => {
             ))}
           </div>
           <span className="text-sm text-gray-600 ml-2">
-            ({i.reviews} reviews)
+            ({i.reviewsCount} reviews)
           </span>
         </div>
 

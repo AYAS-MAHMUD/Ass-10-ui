@@ -85,7 +85,7 @@ const MyBooking = () => {
                 <th>
                   <button
                     onClick={() => handleRemove(i._id)}
-                    className="btn btn-error btn-outline text-white"
+                    className="btn btn-error btn-outline"
                   >
                     Delete
                   </button>
