@@ -11,7 +11,7 @@ const MyBooking = () => {
       .then((res) => res.json())
       .then((data) => setBookings(data));
   }, [user]);
-  console.log(bookings);
+  // console.log(bookings);
 
   // Remove booking
   const handleRemove = (id) => {

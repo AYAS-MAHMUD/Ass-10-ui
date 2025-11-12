@@ -1,5 +1,41 @@
 # React + Vite
 
+# 🌐 HomeHero
+
+This is the **frontend client** of the **HomeHero** web application.  
+It’s built using **React.js** and provides users with an interactive interface to browse services, manage bookings, and connect with service providers.
+
+
+## 🚀 Features
+
+✅ User Authentication (Login / Register)  
+✅ Browse All Services  
+✅ View Service Details  
+✅ Add New Services (for providers)  
+✅ View & Manage My Services  
+✅ Book Services & Manage Bookings  
+✅ Private Route Protection  
+✅ Error Page (404)  
+✅ Responsive Design
+
+
+## 🧩 Technologies Used
+
+- ⚛️ React.js (Vite)
+- 🧭 React Router DOM
+- 🔐 Firebase Authentication
+- 🎨 Tailwind CSS
+- 🧠 Context API
+- 🪄 Lucide Icons
+- ⚙️ dotenv
+- 🌐 REST API Integration (Express + MongoDB)
+
+
+
+
+
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

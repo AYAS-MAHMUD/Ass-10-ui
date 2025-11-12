@@ -26,7 +26,7 @@ const Profile = () => {
         Manage your profile information and settings
       </p>
 
-      <div className=" bg-white rounded-2xl shadow-md w-full max-w-md py-10 md:max-w-xl text-center overflow-hidden">
+      <div className=" bg-white rounded-2xl border-1 border-gray-300 shadow-xl w-full max-w-md py-10 md:max-w-xl text-center overflow-hidden">
         <div className="h-28 bg-gradient-to-r from-gray-800 to-gray-900"></div>
         <div className="-mt-12 flex justify-center">
           {user.photoURL ? (

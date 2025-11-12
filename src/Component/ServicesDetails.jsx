@@ -10,7 +10,7 @@ const ServicesDetails = () => {
     const bidModalref = useRef();
     const {user} =use(AuthContext)
     // console.log(data.provider.name)
-    const {title,category, shortDescription,createdAt, price,provider:{city},provider:{email}, provider: {name} ,provider:{badge} ,priceUnit,rating,reviewsCount,verified,thumbnail,} = data;
+    const {title,category, shortDescription,createdAt, price,provider:{city},provider:{email:providerEmail}, provider: {name} ,provider:{badge} ,priceUnit,rating,reviewsCount,verified,thumbnail,} = data;
     
     const handleBookingSubmit=(e)=>{
         e.preventDefault();
@@ -29,7 +29,10 @@ const ServicesDetails = () => {
             bookingDate : date,
             offeredPrice : price,
         }
-
+        if(providerEmail==user.email){
+          toast.error("You cannot Book your own service")
+          return
+        }
         // console.log(bookingData)
 
         fetch('http://localhost:3000/bookings',{
@@ -140,7 +143,7 @@ const ServicesDetails = () => {
               {name}
             </p>
             <p className="text-sm text-gray-600">{city}</p>
-            <p className="text-sm text-gray-600">{email}</p>
+            <p className="text-sm text-gray-600">{providerEmail}</p>
           </div>
 
           {/* Action Button */}
