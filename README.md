@@ -17,6 +17,7 @@ It’s built using **React.js** and provides users with an interactive interface
 ✅ Private Route Protection  
 ✅ Error Page (404)  
 ✅ Responsive Design
+✅ Authentication system
 
 
 ## 🧩 Technologies Used

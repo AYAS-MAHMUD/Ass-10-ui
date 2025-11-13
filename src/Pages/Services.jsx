@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import LatestCard from "../Component/LatestCard";
 import { motion } from "framer-motion";
 
-const Services = ({ onFilter }) => {
+const Services = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/Services")
@@ -16,8 +16,9 @@ const Services = ({ onFilter }) => {
 
   // ✅ Filter button click handler
   const handleFilter = () => {
+    console.log("filter clicked")
     fetch(
-      `http://localhost:3000/services?minPrice=${minPrice || 0}&maxPrice=${
+      `http://localhost:3000/service?minPrice=${minPrice || 0}&maxPrice=${
         maxPrice || Infinity
       }`
     )

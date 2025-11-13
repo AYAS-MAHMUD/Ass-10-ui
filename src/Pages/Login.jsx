@@ -24,7 +24,7 @@ export default function Login({ onSubmit }) {
     e.preventDefault()
     passwordReset(email)
     .then(()=>{
-      alert("please cheak your email")
+      toast.success("Please cheak your email")
     })
     .catch(error=>{
       console.log(error)
@@ -90,13 +90,13 @@ const e = validate();
   }
   return (
     <div className="min-h-screen flex items-center justify-center  p-6">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
-        <h2 className="text-center text-2xl font-semibold text-gray-800">Login your account</h2>
+      <div className="w-full max-w-md  rounded-2xl shadow-2xl p-8">
+        <h2 className="text-center text-2xl font-semibold">Login your account</h2>
         <hr className="my-6 border-gray-200" />
 
         <form onSubmit={handleLogin} noValidate>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-500">
               Email address
             </label>
             <input
@@ -107,7 +107,7 @@ const e = validate();
               placeholder="Enter your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 placeholder-gray-400 bg-gray-100 ${
+              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 ${
                 errors.email ? "border-red-400" : "border-gray-200"
               }`}
               aria-invalid={Boolean(errors.email)}
@@ -121,7 +121,7 @@ const e = validate();
           </div>
 
           <div className="-mb-4">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-500">
               Password
             </label>
             <input
@@ -132,7 +132,7 @@ const e = validate();
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 placeholder-gray-400 bg-gray-100 ${
+              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 ${
                 errors.password ? "border-red-400" : "border-gray-200"
               }`}
               aria-invalid={Boolean(errors.password)}

@@ -2,8 +2,14 @@ import React, {use, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
-
-
+import { IoHome } from "react-icons/io5";
+import { GrServices } from "react-icons/gr";
+import { FaServicestack } from "react-icons/fa";
+import { FaUser } from "react-icons/fa6";
+import { IoBookmarks } from "react-icons/io5";
+import { MdBookmarkAdd } from "react-icons/md";
+import { HiOutlineLogout } from "react-icons/hi";
+import { TbLogin } from "react-icons/tb";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const {user,signOutUser} =use(AuthContext)
@@ -50,14 +56,14 @@ const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
           </div>
 
         <div className="hidden md:flex items-center gap-6">
-          <NavLink to='/' className="hover:text-blue-400 text-md font-semibold">Home</NavLink>
-          <NavLink to='/services' className="hover:text-blue-400 text-md font-semibold">Services</NavLink>
+          <NavLink to='/' className="hover:text-blue-400 text-md font-semibold flex items-center gap-1"><IoHome />Home</NavLink>
+          <NavLink to='/services' className="hover:text-blue-400 text-md font-semibold flex items-center gap-1"><GrServices />Services</NavLink>
           {
             user && <div className="hidden md:flex items-center gap-6">
-           <NavLink to='/myservices' className="hover:text-blue-400 text-md font-semibold">My Services</NavLink>
-           <NavLink to='/addservices' className="hover:text-blue-400 text-md font-semibold">Add Services</NavLink> 
-           <NavLink to='/mybooking' className="hover:text-blue-400 text-md font-semibold">My Bookings</NavLink> 
-           <NavLink to='/profile' className="hover:text-blue-400 text-md font-semibold">Profile</NavLink> 
+           <NavLink to='/myservices' className="hover:text-blue-400 text-md font-semibold flex items-center gap-1"><FaServicestack />My Services</NavLink>
+           <NavLink to='/addservices' className="hover:text-blue-400 text-md font-semibold flex items-center gap-1"><MdBookmarkAdd />Add Services</NavLink> 
+           <NavLink to='/mybooking' className="hover:text-blue-400 text-md font-semibold flex items-center gap-1"><IoBookmarks/>My Bookings</NavLink> 
+           <NavLink to='/profile' className="hover:text-blue-400 text-md font-semibold flex items-center gap-1"><FaUser />Profile</NavLink> 
 
             </div>
           }
@@ -71,8 +77,8 @@ const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
         <div  className='btn bg-blue-600 hover:bg-blue-700 text-white'>
           
           {
-              user? <div> <button onClick={handleLogout} className=" text-md font-semibold">Log Out</button></div> :
-              <Link to='/login' className=" text-md font-semibold">Login</Link>
+              user? <div> <button onClick={handleLogout} className=" text-md font-semibold flex items-center gap-1">Log Out<HiOutlineLogout /></button></div> :
+              <Link to='/login' className=" text-md font-semibold flex items-center gap-1">Login<TbLogin /></Link>
           }  
 
         </div>

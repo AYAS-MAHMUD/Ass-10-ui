@@ -99,15 +99,15 @@ export default function Register({ onSubmit }) {
   }
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
-        <h2 className="text-center text-2xl font-semibold text-gray-800">
+      <div className="w-full max-w-md  rounded-2xl shadow-2xl p-8">
+        <h2 className="text-center text-2xl font-semibold ">
           Register your account
         </h2>
         <hr className="my-6 border-gray-200" />
 
         <form onSubmit={handleSubmit} noValidate>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium">
               Your Name
             </label>
             <input
@@ -115,7 +115,7 @@ export default function Register({ onSubmit }) {
               name="name"
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your name"
-              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 placeholder-gray-400 bg-gray-100 ${
+              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 placeholder-gray-400${
                 errors.name ? "border-red-400" : "border-gray-200"
               }`}
             />
@@ -125,7 +125,7 @@ export default function Register({ onSubmit }) {
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-500">
               Photo URL
             </label>
             <input
@@ -133,7 +133,7 @@ export default function Register({ onSubmit }) {
               name="photo"
               onChange={(e) => setPhoto(e.target.value)}
               placeholder="Enter a photo URL"
-              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 placeholder-gray-400 bg-gray-100 ${
+              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 placeholder-gray-400 ${
                 errors.photo ? "border-red-400" : "border-gray-200"
               }`}
             />
@@ -143,7 +143,7 @@ export default function Register({ onSubmit }) {
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-500">
               Email
             </label>
             <input
@@ -152,7 +152,7 @@ export default function Register({ onSubmit }) {
               name="email"
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
-              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 placeholder-gray-400 bg-gray-100 ${
+              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 placeholder-gray-400  ${
                 errors.email ? "border-red-400" : "border-gray-200"
               }`}
             />
@@ -162,7 +162,7 @@ export default function Register({ onSubmit }) {
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gray-500">
               Password
             </label>
             <input 
@@ -171,7 +171,7 @@ export default function Register({ onSubmit }) {
               name="password"
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 placeholder-gray-400 bg-gray-100 ${
+              className={`mt-2 w-full px-4 py-3 rounded-md border focus:outline-none focus:ring-2 focus:ring-indigo-200 placeholder-gray-400 ${
                 errors.password ? "border-red-400" : "border-gray-200"
               }`}
             />
@@ -190,7 +190,7 @@ export default function Register({ onSubmit }) {
               onChange={(e) => setAccepted(e.target.checked)}
               className="mt-1 mr-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
             />
-            <label htmlFor="terms" className="text-sm text-gray-700">
+            <label htmlFor="terms" className="text-sm text-gray-500">
               Accept <span className="font-medium">Term & Conditions</span>
             </label>
           </div>
