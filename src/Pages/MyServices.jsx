@@ -105,7 +105,7 @@ const MyServices = () => {
           </thead>
           <tbody>
             {service.map((i, idx) => (
-              <tr>
+              <tr key={idx}>
                 <th>{(idx += 1)}</th>
                 <th>
                   <img
