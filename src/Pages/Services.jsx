@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const Services = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/Services")
+    fetch("https://homehero-sandy.vercel.app/Services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -18,7 +18,7 @@ const Services = () => {
   const handleFilter = () => {
     console.log("filter clicked")
     fetch(
-      `http://localhost:3000/service?minPrice=${minPrice || 0}&maxPrice=${
+      `https://homehero-sandy.vercel.app/service?minPrice=${minPrice || 0}&maxPrice=${
         maxPrice || Infinity
       }`
     )

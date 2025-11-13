@@ -80,7 +80,7 @@ export const router = createBrowserRouter([
                 element : <PrivetRoute>
                     <ServicesDetails></ServicesDetails>
                 </PrivetRoute>,
-                loader : ({params})=>fetch(`http://localhost:3000/services/${params.id}`)
+                loader : ({params})=>fetch(`https://homehero-sandy.vercel.app/services/${params.id}`)
             },
             {
                 path : '*',

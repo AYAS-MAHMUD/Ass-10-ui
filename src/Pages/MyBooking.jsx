@@ -7,7 +7,7 @@ const MyBooking = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/bookings?email=${user?.email}`,{
+    fetch(`https://homehero-sandy.vercel.app/bookings?email=${user?.email}`,{
       headers:{
         authorization:`Bearer ${user.accessToken}`
       }
@@ -29,7 +29,7 @@ const MyBooking = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/bookings/${id}`, {
+        fetch(`https://homehero-sandy.vercel.app/bookings/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

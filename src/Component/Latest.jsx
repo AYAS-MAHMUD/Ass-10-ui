@@ -6,7 +6,7 @@ const Latest = ({latestData}) => {
     const data = use(latestData)
     // console.log(data)
   return (
-    <div className='px-30 mx-auto'>
+    <div className='px-2 sm:px-10 md:px-30 mx-auto'>
         <div className="text-center mb-12">
             <motion.h2 initial={{ opacity: 0 ,x:40}} whileInView={{opacity:1, x:0}} transition={{ duration: 1 }} className="text-3xl md:text-4xl font-bold  mb-4">
               Top Rated Services

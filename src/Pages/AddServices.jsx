@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import axios from '../../node_modules/axios/lib/axios';
+// import axios from '../../node_modules/axios/lib/axios';
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { motion } from 'framer-motion';
@@ -35,13 +35,27 @@ const AddServices = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("add service",formData)
     // console.log("Submitted Data:", formData);
     // You can send the data to your backend here using fetch or axios
-    axios.post('http://localhost:3000/services',formData)
-    .then(data=>{
-      toast.success("Your Service Submitted")
-      console.log("Axios data ",data.data)
+    // axios.post('https://homehero-sandy.vercel.app/services',formData)
+    // .then(data=>{
+    //   toast.success("Your Service Submitted")
+    //   console.log("Axios data ",data.data)
+    // })
+    fetch('https://homehero-sandy.vercel.app/services',{
+      method: 'POST',
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(formData)
     })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      toast.success("Your Service Submitted")
+    })
+    
   };
 
   return (

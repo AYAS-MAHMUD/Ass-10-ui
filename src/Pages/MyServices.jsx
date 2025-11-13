@@ -13,7 +13,7 @@ const MyServices = () => {
     // console.log(category,price)
   const [service, setService] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/services?email=${user.email}`)
+    fetch(`https://homehero-sandy.vercel.app/services?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setService(data));
   }, [user]);
@@ -31,7 +31,7 @@ const MyServices = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/services/${id}`, {
+        fetch(`https://homehero-sandy.vercel.app/services/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -60,7 +60,7 @@ const MyServices = () => {
     price: Price,
   };
 
-  const response = await fetch(`http://localhost:3000/services/${id}`, {
+  const response = await fetch(`https://homehero-sandy.vercel.app/services/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

@@ -5,7 +5,7 @@ import Testimonial from "../Component/Testimonial"
 import WhyChoiceUs from "../Component/WhyChoiceUs"
 import Footer from "../Layout/Footer"
 
-const latestData = fetch('http://localhost:3000/latest-services')
+const latestData = fetch('https://homehero-sandy.vercel.app/latest-services')
 .then(res=>res.json())
 const Home = () => {
   return (
