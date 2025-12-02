@@ -11,7 +11,7 @@ const Services = () => {
 
   const limit = 8;
   useEffect(() => {
-    fetch(`http://localhost:3000/Services?limit=${limit}&skip=${(currentPage-1)*limit}`)
+    fetch(`https://homehero-sandy.vercel.app/Services?limit=${limit}&skip=${(currentPage-1)*limit}`)
       .then((res) => res.json())
       .then((data) => {
         setServices(data.result);

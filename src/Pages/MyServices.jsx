@@ -12,10 +12,11 @@ const MyServices = () => {
     const [Price,setPrice] = useState("")
     // console.log(category,price)
   const [service, setService] = useState([]);
+  console.log(service)
   useEffect(() => {
     fetch(`https://homehero-sandy.vercel.app/services?email=${user.email}`)
       .then((res) => res.json())
-      .then((data) => setService(data));
+      .then((data) => setService(data.result));
   }, [user]);
   // console.log(service);
 
