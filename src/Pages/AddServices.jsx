@@ -61,7 +61,7 @@ const AddServices = () => {
   return (
     <motion.div initial={{ opacity: 0, x: -30 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }} className="flex justify-center items-center min-h-screen ">
+      transition={{ duration: 1 }} className="flex m-4 justify-center items-center min-h-screen ">
       <div className="border-1 border-amber-50 p-8 rounded-2xl shadow-xl w-full max-w-lg">
         <h1 className="text-3xl font-bold text-center mb-2">Submit Your Service</h1>
         <p className=" text-center mb-6">

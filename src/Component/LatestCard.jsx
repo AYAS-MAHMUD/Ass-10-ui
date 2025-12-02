@@ -8,7 +8,7 @@ const LatestCard = ({i}) => {
 
   return (
     <motion.div initial={{ opacity: 0 ,y:20,scale:0.9}} whileInView={{opacity:1, y:0,scale:1}} transition={{ duration: 1 }}>
-        <div  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform ">
+        <div  className="bg-white rounded-lg shadow-lg mx-3 overflow-hidden hover:shadow-xl transition-all duration-300 transform ">
       {/* Image */}
       <div className="relative h-78 overflow-hidden bg-gray-200">
         <img

@@ -41,12 +41,12 @@ const WhyChoiceUs = () => {
 ];
 // console.log(whyChoose)
   return (
-    <motion.div initial={{ opacity: 0 ,x:40}} whileInView={{opacity:1, x:0}} transition={{ duration: 1 }} className='px-5 sm:px-10 md:px-40  mx-auto my-20 bg-gray-100'>
+    <motion.div initial={{ opacity: 0 ,x:40}} whileInView={{opacity:1, x:0}} transition={{ duration: 1 }} className='px-5 sm:px-10 md:px-40  my-10'>
               {/* Why Choose Us */}
       <section className="py-16 md:py-24">
 
           <div className="text-center mb-12">
-            <motion.h2 initial={{ opacity: 0 ,x:40}} whileInView={{opacity:1, x:0}} transition={{ duration: 1 }} className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <motion.h2 initial={{ opacity: 0 ,x:40}} whileInView={{opacity:1, x:0}} transition={{ duration: 1 }} className="text-2xl md:text-4xl font-bold mb-4">
               Why Choose HomeHero?
             </motion.h2>
             <motion.p initial={{ opacity: 0 ,x:-40}} whileInView={{opacity:1, x:0}} transition={{ duration: 1 }} className="text-lg text-gray-600 max-w-2xl mx-auto">

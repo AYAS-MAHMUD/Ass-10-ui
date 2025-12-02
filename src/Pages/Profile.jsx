@@ -23,7 +23,7 @@ const Profile = () => {
   return (
     <motion.div initial={{ opacity: 0, x: -30 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }} className="flex flex-col items-center min-h-screen py-20 mx-auto">
+      transition={{ duration: 1 }} className="flex flex-col items-center min-h-screen mx-5 py-20">
       <h1 className="text-3xl font-bold  mb-2">My Profile</h1>
       <p className=" mb-8">
         Manage your profile information and settings

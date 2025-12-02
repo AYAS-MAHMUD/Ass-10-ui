@@ -33,7 +33,7 @@ const Testimonial = () => {
     <motion.div initial={{ opacity: 0 ,y:-40}} whileInView={{opacity:1, y:0}} transition={{ duration: 1 }} className='px-5 sm:px-10 md:px-40 mx-auto my-20'>
 
       {/* Customer Testimonials */}
-      <section className="py-10 md:py-0">
+      <section className="md:py-0">
           <div className="text-center mb-12">
             <motion.h2 initial={{ opacity: 0 ,x:40}} whileInView={{opacity:1, x:0}} transition={{ duration: 1 }} className="text-3xl md:text-4xl font-bold mb-4">
               What Our Customers Say

@@ -41,8 +41,8 @@ const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   };
 
   return (
-    <header className="w-full  shadow-sm">
-      <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <header className="w-full  shadow-sm sticky top-0 z-50 bg-white">
+      <nav className="container mx-auto px-4 py-3 flex items-center justify-between ">
    
         {/* <div className="flex items-center gap-3">
           <span className="font-bold text-[28px] "><span className='text-purple-600'>Smart</span>Deal</span>
@@ -55,7 +55,7 @@ const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
             <p className="text-xs">Local Service Finder</p>
           </div>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6 text-black">
           <NavLink to='/' className="hover:text-blue-400 text-md font-semibold flex items-center gap-1"><IoHome />Home</NavLink>
           <NavLink to='/services' className="hover:text-blue-400 text-md font-semibold flex items-center gap-1"><GrServices />Services</NavLink>
           {
@@ -86,9 +86,9 @@ const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
         {/* Mobile er jonno toggle icon */}
         <div className="md:hidden">
           <button
-            aria-label="Toggle menu"
+            aria-label="Toggle menu " 
             onClick={() => setOpen((s) => !s)}
-            className="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-300">
+            className="text-blue-500  p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-300">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               {open ? (
                 <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -108,7 +108,7 @@ const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
             exit={{ height: 0, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             className="md:hidden overflow-hidden">
-            <div className="px-4 pb-4 space-y-3 flex flex-col">
+            <div className="px-4 pb-4 space-y-3 flex flex-col text-black">
               <NavLink to='/' className="hover:text-green-600 py-2 border-b text-md font-semibold">Home</NavLink>
               <NavLink to='/services' className="hover:text-green-600 py-2 border-b text-md font-semibold">Services</NavLink>
             {

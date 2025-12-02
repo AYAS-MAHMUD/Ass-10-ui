@@ -81,7 +81,7 @@ const MyServices = () => {
   }
 
   return (
-    <div className="px-5 sm:px-10 md:px-30  mx-auto">
+    <div className="px-5 sm:px-10  md:px-30  mx-auto">
       <div className="border-b-4 border-blue-600 pb-4 my-15">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}

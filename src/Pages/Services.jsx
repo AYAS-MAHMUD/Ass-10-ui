@@ -4,14 +4,24 @@ import { motion } from "framer-motion";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const [totalService,setTotolService] = useState(0);
+  const [totalPage,setTotalPage] = useState(0);
+  const [currentPage,setCurrentpage] = useState(1);
+  console.log(currentPage)
+
+  const limit = 8;
   useEffect(() => {
-    fetch("https://homehero-sandy.vercel.app/Services")
+    fetch(`http://localhost:3000/Services?limit=${limit}&skip=${(currentPage-1)*limit}`)
       .then((res) => res.json())
-      .then((data) => setServices(data));
-  }, []);
+      .then((data) => {
+        setServices(data.result);
+        setTotolService(data.count)
+        setTotalPage(Math.ceil(data.count/limit))
+      });
+  }, [currentPage]);
   // console.log(services)
 
-  const [minPrice, setMinPrice] = useState(0);
+  const [minPrice, setMinPrice] = useState(null);
   const [maxPrice, setMaxPrice] = useState(5000);
 
   // ✅ Filter button click handler
@@ -33,7 +43,7 @@ const Services = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className=" text-center text-4xl font-bold"
+          className=" text-center text-2xl md:text-4xl font-bold"
         >
           All Services
         </motion.h1>
@@ -68,11 +78,22 @@ const Services = () => {
           Apply
         </button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {services.map((i) => (
           <LatestCard key={i.id} i={i} />
         ))}
       </div>
+      
+      <div className="my-10 flex flex-wrap  justify-center gap-3">
+        <button className="btn" onClick={()=>setCurrentpage((prev)=>Math.max(prev-1,1))}>Prev</button>
+        {
+          [...Array(totalPage).keys()].map(i=><button onClick={()=>setCurrentpage(i+1)} className={`btn ${currentPage
+            ===i+1 && 'bg-blue-500 text-white'
+          }`}>{i+1}</button>)
+        }
+        <button className="btn" onClick={()=>setCurrentpage((current)=> Math.min(current+1,totalPage))}>Next</button>
+      </div>
+      
     </div>
   );
 };
